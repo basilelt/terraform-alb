@@ -1,11 +1,7 @@
 
 resource "aws_key_pair" "key_auth" {
-  key_name   = "deployer-key"
+  key_name   = var.tag_name
   public_key = file("./.ssh/id_rsa.pub")
-    tags = {
- #   Name = each.key
-    Name = var.tag_name
-  }
 }
 
 
