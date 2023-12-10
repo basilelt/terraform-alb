@@ -1,7 +1,11 @@
 
-resource "aws_key_pair" "pir_auth" {
+resource "aws_key_pair" "key_auth" {
   key_name   = "deployer-key"
   public_key = file("./.ssh/id_rsa.pub")
+    tags = {
+ #   Name = each.key
+    Name = var.tag_name
+  }
 }
 
 
@@ -24,7 +28,7 @@ resource "aws_instance" "my_app_eg1" {
 
   ami           = data.aws_ami.server_ami_arm.id
   instance_type = each.value.machine_type
-  key_name      = aws_key_pair.pir_auth.id
+  key_name      = aws_key_pair.key_auth.id
   subnet_id     = each.value.subnet_id
   user_data     = file("./templates/http_server_install.tpl")
 
@@ -35,8 +39,8 @@ resource "aws_instance" "my_app_eg1" {
   }
 
   tags = {
- #   Name = each.key
-    Name = var.tag_name
+    Name = each.key
+ #   Name = var.tag_name
   }
 
   provisioner "local-exec" {
