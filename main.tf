@@ -1,7 +1,7 @@
 
 resource "aws_key_pair" "pir_auth" {
   key_name   = "deployer-key"
-  public_key = file("./.ssh/ida_rsa.pub")
+  public_key = file("./.ssh/id_rsa.pub")
 }
 
 
@@ -9,11 +9,11 @@ locals {
   web_servers = {
     instance1 = {
       machine_type = "t4g.nano"
-      subnet_id    = aws_subnet.pir_public_subnet1.id
+      subnet_id    = aws_subnet.public_subnet_eu-central-1a.id
     }
     instance2 = {
       machine_type = "t4g.nano"
-      subnet_id    = aws_subnet.pir_public_subnet2.id
+      subnet_id    = aws_subnet.public_subnet_eu-central-1b.id
     }
   }
 }
@@ -35,7 +35,8 @@ resource "aws_instance" "my_app_eg1" {
   }
 
   tags = {
-    Name = each.key
+ #   Name = each.key
+    Name = var.tag_name
   }
 
   provisioner "local-exec" {

@@ -8,8 +8,7 @@ terraform {
 }
 
 provider "aws" {
-  region                   = "eu-central-1"
-#  region                   = "eu-west-3"
-  shared_credentials_files = ["~/.aws/credentials"]
-  profile                  = "pir-aws"
+  region      = "eu-central-1"
+  access_key  =  var.access_key
+  secret_key  =  var.secret_key
 }

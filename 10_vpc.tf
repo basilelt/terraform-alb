@@ -4,8 +4,7 @@ resource "aws_vpc" "main" {
   enable_dns_support   = true
 
   tags = {
-    Name = "pir_main_vpc_10.1"
-    user = "pir"
+    Name = var.tag_name
   }
 
   provisioner "local-exec" {
