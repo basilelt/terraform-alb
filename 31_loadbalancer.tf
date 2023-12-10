@@ -1,7 +1,7 @@
 # Voir Tuto : https://antonputra.com/amazon/create-alb-terraform/#create-aws-vpc
 
 resource "aws_lb_target_group" "my_app_eg1" {
-  name       = "my-app-eg1"
+  name       = var.tag_name
   port       = 80
   protocol   = "HTTP"
   vpc_id     = aws_vpc.main.id
@@ -35,7 +35,7 @@ resource "aws_lb_target_group_attachment" "my_app_eg1" {
 }
 
 resource "aws_lb" "my_app_eg1" {
-  name               = "my-app-eg1"
+  name               = var.tag_name
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.elb_sg.id]

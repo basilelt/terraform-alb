@@ -12,7 +12,7 @@ variable "secret_key" {
 }
 
 variable "tag_name" {
-  default = "Formation Finops"
+  default = "Formation-Finops-XXX"
   description = "Valeur du tag utilisé pour la création des instances terraforms"
 }
 
