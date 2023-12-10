@@ -1,7 +1,7 @@
 
 resource "aws_key_pair" "pir_auth" {
   key_name   = "deployer-key"
-  public_key = file("./.ssh/aws.pub")
+  public_key = file("./.ssh/ida_rsa.pub")
 }
 
 
