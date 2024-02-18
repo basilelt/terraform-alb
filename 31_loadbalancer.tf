@@ -47,8 +47,8 @@ resource "aws_lb" "my_app_eg1" {
   # }
 
   subnets = [
-    aws_subnet.public_subnet_eu-central-1a.id,
-    aws_subnet.public_subnet_eu-central-1b.id
+    aws_subnet.public_subnet_a.id,
+    aws_subnet.public_subnet_b.id
   ]
 }
 

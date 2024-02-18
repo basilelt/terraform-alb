@@ -33,18 +33,18 @@ resource "aws_route" "default_route" {
 
 # Faire l'association entre la route_table et le subnet
 resource "aws_route_table_association" "public_assoc" {
-  subnet_id      = aws_subnet.public_subnet_eu-central-1a.id
+  subnet_id      = aws_subnet.public_subnet_a.id
   route_table_id = aws_route_table.public.id
 }
 
 # Faire l'association entre la route_table et le subnet
 resource "aws_route_table_association" "public_assoc2" {
-  subnet_id      = aws_subnet.public_subnet_eu-central-1b.id
+  subnet_id      = aws_subnet.public_subnet_b.id
   route_table_id = aws_route_table.public.id
 }
 
 # Faire l'association entre la route_table et le subnet
-resource "aws_route_table_association" "private_eu-central-1a" {
-  subnet_id      = aws_subnet.priv_subnet_eu-central-1a.id
+resource "aws_route_table_association" "private_a" {
+  subnet_id      = aws_subnet.priv_subnet_a.id
   route_table_id = aws_route_table.private.id
 }
