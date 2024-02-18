@@ -9,11 +9,11 @@ locals {
   web_servers = {
     instance1 = {
       machine_type = "t4g.nano"
-      subnet_id    = aws_subnet.public_subnet_eu-central-1a.id
+      subnet_id    = aws_subnet.public_subnet_a.id
     }
     instance2 = {
       machine_type = "t4g.nano"
-      subnet_id    = aws_subnet.public_subnet_eu-central-1b.id
+      subnet_id    = aws_subnet.public_subnet_b.id
     }
   }
 }
