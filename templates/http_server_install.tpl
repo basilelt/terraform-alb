@@ -6,6 +6,6 @@ yum update -y
 systemctl start httpd
 systemctl enable httpd
 echo "<h1>Hello World ! This is $(hostname -f)</h1>" > /var/www/html/index.html
-
+echo "<h2>Deployed by Basile</h2>" >> /var/www/html/index.html
 
 
