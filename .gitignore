@@ -1,5 +1,6 @@
 .terraform*
 terraform.tfstate*
-.ssh/id_rsa.pub
-.gitignore
+.ssh/id_rsa*
 *.tfvars
+.DS_Store
+00_variables.tf

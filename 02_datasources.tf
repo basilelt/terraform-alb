@@ -1,9 +1,29 @@
 data "aws_ami" "server_ami_arm" {
   most_recent = true
-  owners      = ["137112412989"] 
+  owners      = ["amazon"] 
 
   filter {
-    name = "name"
-    values = ["al2023-ami-2023.2.20231113.0-kernel-6.1-arm64"]
+    name   = "name"
+    values = ["al2023-ami-*-arm64"]
+  }
+  
+  filter {
+    name   = "architecture"
+    values = ["arm64"]
+  }
+  
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+  
+  filter {
+    name   = "root-device-type"
+    values = ["ebs"]
+  }
+  
+  filter {
+    name   = "state"
+    values = ["available"]
   }
 }

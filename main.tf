@@ -31,7 +31,7 @@ resource "aws_instance" "my_app_eg1" {
   vpc_security_group_ids = [aws_security_group.elb_sg.id]
 
   root_block_device {
-    volume_size = 10
+    volume_size = 30
   }
 
   tags = {
